@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.github.tuvy22686.notifications.databinding.ActivityMainBinding
 import com.github.tuvy22686.notifications.viewmodel.MainViewModel
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         DataBindingUtil.setContentView(this, R.layout.activity_main) as ActivityMainBinding
     }
 
-    private val mainViewModel = MainViewModel()
+    private val mainViewModel by inject<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
