@@ -26,6 +26,11 @@ android {
     dataBinding {
         enabled = true
     }
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/kotlin'
+        test.kotlin.srcDirs += 'src/test/kotlin'
+        androidTest.kotlin.srcDirs += 'src/androidTest/kotlin'
+    }
 }
 
 dependencies {
