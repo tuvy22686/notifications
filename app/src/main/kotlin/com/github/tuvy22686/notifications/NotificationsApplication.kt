@@ -9,7 +9,7 @@ import org.koin.android.ext.android.startKoin
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.module
 
-class NotificationsApplication: Application() {
+class NotificationsApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
