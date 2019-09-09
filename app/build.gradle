@@ -27,8 +27,11 @@ android {
         enabled = true
     }
     sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
         main.kotlin.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
         test.kotlin.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
         androidTest.kotlin.srcDirs += 'src/androidTest/kotlin'
     }
 }
