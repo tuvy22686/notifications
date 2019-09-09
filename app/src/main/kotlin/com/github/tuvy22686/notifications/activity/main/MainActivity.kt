@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.github.tuvy22686.notifications.R
-import com.github.tuvy22686.notifications.adapter.MainAdapter
+import com.github.tuvy22686.notifications.adapter.MainListAdapter
 import com.github.tuvy22686.notifications.databinding.ActivityMainBinding
 import com.github.tuvy22686.notifications.viewmodel.main.MainViewModel
 import org.koin.android.ext.android.inject
@@ -31,6 +31,6 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = binding.recyclerView
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = MainAdapter(mainViewModel.getNotificationTypeList())
+        recyclerView.adapter = MainListAdapter(mainViewModel)
     }
 }

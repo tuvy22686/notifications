@@ -1,7 +1,9 @@
 package com.github.tuvy22686.notifications.repository.main
 
-interface MainRepository {
-    fun getNotificationTypeList(): List<String>
+import com.github.tuvy22686.notifications.model.main.NotificationType
 
-    fun getNotificationType(index: Int): String
+interface MainRepository {
+    fun getNotificationTypeList(): List<NotificationType>
+
+    fun getNotificationType(index: Int): NotificationType
 }

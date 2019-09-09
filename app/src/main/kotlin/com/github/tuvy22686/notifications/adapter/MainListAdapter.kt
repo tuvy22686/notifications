@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.tuvy22686.notifications.databinding.ListMainBinding
+import com.github.tuvy22686.notifications.viewmodel.main.MainListViewModelImpl
+import com.github.tuvy22686.notifications.viewmodel.main.MainViewModel
 
-class MainAdapter(private val dataset: List<String>): RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
+class MainListAdapter(private val mainViewModel: MainViewModel) : RecyclerView.Adapter<MainListAdapter.MainViewHolder>() {
 
     class MainViewHolder(val binding: ListMainBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -15,11 +17,10 @@ class MainAdapter(private val dataset: List<String>): RecyclerView.Adapter<MainA
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        val notificationTypeList = dataset[position]
-        holder.binding.textView.text = notificationTypeList
+        holder.binding.viewModel = mainViewModel.getListViewModel(position) as MainListViewModelImpl
     }
 
     override fun getItemCount(): Int {
-        return dataset.size
+        return mainViewModel.getNotificationTypeList().size
     }
 }
