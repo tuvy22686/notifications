@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.github.tuvy22686.notifications">
 
     <dist:module dist:instant="true" />
+
+    <uses-permission android:name="android.permission.BROADCAST_SMS"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".NotificationsApplication"
@@ -21,6 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".push.LocalNotificationService">
+            <intent-filter>
+                <action android:name="com.github.tuvy22686.notifications.activity.main.MainActivity"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
