@@ -1,6 +1,7 @@
 package com.github.tuvy22686.notifications.activity.main
 
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity(), MainListItemClickListener {
 
     override fun onPushItemClick() {
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val title = "Title"
+        val title = "Push通知"
         val description = "Description"
 
         if (Build.VERSION.SDK_INT >= 26 && notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
@@ -80,9 +81,15 @@ class MainActivity : AppCompatActivity(), MainListItemClickListener {
         notificationManager.notify(AlarmManager.RTC_WAKEUP, notification)
     }
 
-    override fun onInlineMessageItemClick() {
+    override fun onDialogItemClick() {
+        AlertDialog.Builder(this)
+            .setTitle("Dialog")
+            .setMessage("Description")
+            .setPositiveButton("ok", null)
+            .setNegativeButton("cancel", null)
+            .show()
     }
 
-    override fun onDialogItemClick() {
+    override fun onInlineMessageItemClick() {
     }
 }
