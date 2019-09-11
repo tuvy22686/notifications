@@ -11,4 +11,8 @@ class MainListViewModelImpl(private val notificationType: NotificationType) : Ma
     override fun getNotificationMessage(): String {
         return notificationType.title
     }
+
+    override fun getNotificationDescription(): String? {
+        return notificationType.description
+    }
 }
