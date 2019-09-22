@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity(), MainListItemClickListener {
         val title = "Push通知"
         val description = "Description"
 
-        if (Build.VERSION.SDK_INT >= 26 && notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && notificationManager.getNotificationChannel(CHANNEL_ID) == null) {
             val channel = NotificationChannel(CHANNEL_ID, title, NotificationManager.IMPORTANCE_HIGH)
             channel.description = description
             notificationManager.createNotificationChannel(channel)
@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity(), MainListItemClickListener {
                 setContentText(description)
                 setAutoCancel(true)
                 setWhen(System.currentTimeMillis())
+                setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 setContentIntent(PendingIntent.getActivity(this@MainActivity, 0, createIntent(this@MainActivity), 0))
             }
             .build()
