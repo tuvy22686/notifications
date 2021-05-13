@@ -92,5 +92,7 @@ class MainActivity : AppCompatActivity(), MainListItemClickListener {
     }
 
     override fun onInlineMessageItemClick() {
+        mainViewModel.editNotificationTypeList(3, "タップされました")
+        binding.recyclerView.adapter!!.notifyDataSetChanged()
     }
 }
