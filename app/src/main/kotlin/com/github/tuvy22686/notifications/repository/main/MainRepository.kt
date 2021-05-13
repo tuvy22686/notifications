@@ -6,4 +6,6 @@ interface MainRepository {
     fun getNotificationTypeList(): List<NotificationType>
 
     fun getNotificationType(index: Int): NotificationType
+
+    fun editDescription(id: Long, description: String)
 }

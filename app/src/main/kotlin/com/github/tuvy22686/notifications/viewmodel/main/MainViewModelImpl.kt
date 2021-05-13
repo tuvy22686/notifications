@@ -12,4 +12,8 @@ class MainViewModelImpl(private val mainRepository: MainRepository) : MainViewMo
     override fun getListViewModel(index: Int): MainListViewModel {
         return MainListViewModelImpl(mainRepository.getNotificationType(index))
     }
+
+    override fun editNotificationTypeList(id: Long, description: String) {
+        mainRepository.editDescription(id, description)
+    }
 }
